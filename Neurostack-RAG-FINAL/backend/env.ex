@@ -1,0 +1,3 @@
+HUGGINGFACEHUB_API_TOKEN=hf_xxxxxxxxxxxxxxxxxxxxxxxx
+GROQ_API_KEY=gsk_xxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+SECRET_KEY=your-super-secret-jwt-key-here

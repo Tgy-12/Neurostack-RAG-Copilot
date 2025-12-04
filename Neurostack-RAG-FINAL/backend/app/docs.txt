@@ -1,0 +1,71 @@
+
+## 1. Product Overview and Core Features
+**Company Name:** The developer and operator of this platform is **NeuroStack Technologies, Inc.**
+CoPilot Assistant is an integrated support platform designed for real-time customer query resolution. Our core offering is the **Hybrid Retrieval System**, which uses a combination of semantic vector search (FAISS) and keyword matching (BM25) to find the most relevant context in the documentation. This ensures high accuracy and reduces response latency. The platform is accessible 24/7 via the main web dashboard or our dedicated mobile application (iOS/Android). All communication channels are secured with TLS 1.3 encryption.
+* **Hybrid Retrieval Detail:** The system first searches for exact keyword matches (BM25) and simultaneously searches for semantic meaning (FAISS). This dual approach ensures both specific, technical questions and vague, conceptual questions retrieve the best context.
+* **Indexing Frequency:** Documentation is automatically re-indexed every 6 hours. Emergency manual re-indexing can be requested via Enterprise support.
+* **Latency:** Average query latency, excluding network time, is under 400 milliseconds due to the optimization of the Groq LLM architecture.
+* **Mobile Access:** The mobile application supports push notifications for important system updates and account alerts.
+
+## 2. Pricing and Subscription Tiers
+We offer three primary subscription tiers: Basic, Pro, and Enterprise. The Basic tier is free and includes access to the core dashboard and up to 100 RAG queries per month. It does not include personalized agent support.
+* **Basic Tier Limits:** Once the 100-query monthly limit is reached, Basic users must wait until the next billing cycle or upgrade to the Pro tier for immediate access.
+* **Pro Tier Benefits:** The **Pro tier** costs $50 per month and grants **unlimited RAG queries**, dedicated email support with a guaranteed 4-hour response time, and advanced analytics on query resolution rates. Users on the Pro tier are prioritized during peak usage times.
+* **Enterprise Tier Customization:** The Enterprise tier is custom priced. It provides everything in the Pro tier, plus a dedicated account manager, an SLA (Service Level Agreement) guaranteeing 99.9% uptime, and the ability to integrate our RAG engine directly into internal systems via a private API key.
+* **SSO Integration:** Enterprise deployment includes single sign-on (SSO) integration via Okta or Azure AD. SSO setup requires a dedicated configuration session with our deployment team.
+
+## 3. Account and Security Information
+User authentication is handled via the **/api/token endpoint**, which issues a **JWT (JSON Web Token)**. This token must be included in the Authorization header of all subsequent requests, including the primary /api/copilot endpoint.
+* **Token Expiration:** Tokens expire every **30 minutes** for security, requiring a re-authentication after expiry. Clients are recommended to refresh the token proactively.
+* **Data Encryption at Rest:** All sensitive user data and documentation (the source of the RAG context) are encrypted at rest using industry-standard **AES-256 encryption**.
+* **Password Storage:** We do not store raw passwords; we use **bcrypt** for secure hashing.
+* **Compliance:** For Enterprise clients, we offer region-specific data hosting compliance (GDPR, CCPA). Compliance documentation is available upon request.
+
+## 4. API and Integration Details
+* **Private API Key:** The private API key granted to Enterprise clients allows direct integration of our RAG engine into custom applications.
+* **API Rate Limits:** API access is rate-limited to 500 requests per minute for the Enterprise tier. Pro users accessing the dashboard are limited to 60 requests per minute.
+* **Webhook Support:** We provide webhook support for real-time notifications on documentation updates and key changes to query resolution effectiveness.
+* **Endpoint Specifications:** The primary RAG endpoint is `/api/copilot` and expects a POST request with a JSON payload of `{"text": "your query"}`.
+* **Error Handling:** All API errors return standard HTTP status codes (e.g., 401 Unauthorized, 404 Not Found, 500 Internal Server Error).
+
+---
+
+## 5. Frequently Asked Questions (FAQ)
+
+### 5.1 General Account and Security
+* **Q: How long does my session last?**
+  * A: Your session token expires after 30 minutes. You will need to log in again after this time unless you proactively refresh your token.
+* **Q: Is my data safe?**
+  * A: Yes, all data, including documentation, is encrypted at rest using AES-256 and passwords are securely hashed with bcrypt.
+* **Q: What authentication methods are supported?**
+  * A: Standard username/password login is supported. Enterprise clients can integrate Single Sign-On (SSO) via Okta or Azure AD.
+* **Q: Can I integrate my own documentation?**
+  * A: Yes, the Enterprise tier offers private API key access to integrate our RAG engine with your internal documentation systems.
+
+### 5.2 Billing and Subscriptions
+* **Q: What is the cost of the Pro tier?**
+  * A: The Pro tier costs $50 per month.
+* **Q: Are refunds available?**
+  * A: Refunds are strictly limited to the terms specified in the SLA for Enterprise clients. All other tiers are non-refundable.
+* **Q: Where can I find my past invoices?**
+  * A: All past invoices are available for download as PDF documents in the Billing section of your dashboard.
+* **Q: How do I upgrade from Basic to Pro?**
+  * A: You can upgrade your subscription at any time via the main dashboard settings panel. The upgrade takes effect immediately.
+* **Q: How many RAG queries does the Basic tier allow?**
+  * A: The Basic tier allows a maximum of 100 RAG queries per month.
+
+### 5.3 Technical Details and Support
+* **Q: What is the main benefit of the Hybrid Retrieval System?**
+  * A: The main benefit is the combination of semantic search (FAISS) and keyword matching (BM25), which maximizes accuracy for both complex and simple queries.
+* **Q: What technology is used for the LLM?**
+  * A: We use the Groq LLM architecture, which is optimized for low-latency responses (under 400 milliseconds).
+* **Q: Which encryption standard is used for data at rest?**
+  * A: Data at rest is encrypted using AES-256.
+* **Q: How often is the documentation updated?**
+  * A: Documentation is automatically re-indexed every 6 hours.
+* **Q: What is the response time guarantee for Pro users?**
+  * A: Pro users receive dedicated email support with a guaranteed 4-hour response time.
+
+---
+
+
